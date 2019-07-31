@@ -1,0 +1,77 @@
+// Lecture: let and const
+
+// ES5
+
+/*
+var name5 = 'Jane Smith';
+var age5 = 23;
+
+name5 = 'Jane Miller';
+console.log(name5);
+
+// ES6
+
+const name6 = 'Jane Smith'
+let age6 = 23;
+age6 = 24;
+
+name6 = 'Jane Miller'
+console.log(name6);
+console.log(age6);
+*/
+
+// ES5
+/*
+function driversLicence5(passedTest) {
+    if (passedTest) {
+        console.log(firstName)
+        var firstName = 'John';
+        var yearOfBirth = 1990;
+    }
+    console.log(firstName + ', born in ' + yearOfBirth +
+    ' is now officially allowed to drive a car.');
+};
+
+// ES6
+
+driversLicence5(true);
+//console.log(yearOfBirth);
+    let firstName;
+    const yearOfBirth = 1990;
+
+function driversLicence6(passedTest) {
+    if (passedTest) {
+        firstName = 'John';
+    }
+    console.log(firstName + ', born in ' + yearOfBirth +
+    ' is now officially allowed to drive a car.');
+};
+*/
+
+driversLicence6(true);
+
+
+let i = 23;
+
+for(let i = 0; i < 5; i++) {
+    console.log(i);
+};
+
+console.log(i);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
