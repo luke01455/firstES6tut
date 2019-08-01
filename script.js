@@ -114,6 +114,7 @@ console.log(`${firstName} `.repeat(5));
 
 // Lecture: Arrow Functions 
 
+/*
 const years = [1990, 1965, 1982, 1937];
 
 // ES5
@@ -136,7 +137,22 @@ const age = now - el;
 return `Age element ${index + 1}: ${age}.`
 });
 console.log(ages6);
+*/
 
+// Lecture: Arrow function 2
+
+// ES5 
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function() {
+        document.querySelector('.green').addEventListener('click', function(){
+            var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+            alert(str);
+        })
+    }
+}
+box5.clickMe();
 
 
 
