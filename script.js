@@ -160,7 +160,7 @@ box5.clickMe();
 
 // ES6
 
-
+/*
 const box6 = {
     color: 'green',
     position: 1,
@@ -173,7 +173,7 @@ const box6 = {
     }
 }
 box6.clickMe();
-
+*/
 
 /*
 const box66 = {
@@ -190,10 +190,11 @@ const box66 = {
 box66.clickMe();
 */
 
+/*
 function Person(name) {
     this.name = name;
 }
-
+*/
 // ES5
 /*
 Person.prototype.myFriends5 = function(friends) {
@@ -208,7 +209,7 @@ Person.prototype.myFriends5 = function(friends) {
 
 var friends = ['Bob', 'Jane', 'Mark'];
 new Person('John').myFriends5(friends);
-*/
+
 
 Person.prototype.myFriends6 = function(friends) {
     var arr = friends.map(el =>
@@ -221,77 +222,50 @@ Person.prototype.myFriends6 = function(friends) {
 
 var friends = ['Bob', 'Jane', 'Mark'];
 new Person('John').myFriends6(friends);
+*/
+
+////////////////////////////////////////////////
+// Lecture: Destructuring
+
+// ES5
+
+//var john  = ['John', 26];
+//var name = john[0];
+//var age = john[1];
 
 // ES6
 
 
-const box6 = {
-    color: 'green',
-    position: 1,
-    clickMe: function() {
+const John = [name, age] = ['John', 26];
+console.log(name);
+console.log(age);
+console.log(John);
 
-        document.querySelector('.green').addEventListener('click', () => {
-            var str = 'This is box number ' + this.position + ' and it is ' + this.color;
-            alert(str);
-        })
-    }
-}
-box6.clickMe();
+const obj = {
+    firstName: 'John',
+    lastName: 'Smith'
+};
 
 
-/*
-const box66 = {
-    color: 'green',
-    position: 1,
-    clickMe: () => {
+const {firstName, lastName} = obj;
+console.log(firstName);
+console.log(lastName);
+console.log(obj);
 
-        document.querySelector('.green').addEventListener('click', () => {
-            var str = 'This is box number ' + this.position + ' and it is ' + this.color;
-            alert(str);
-        })
-    }
-}
-box66.clickMe();
-*/
+const {firstName: a, lastName: b} = obj;
+console.log(a);
+console.log(b);
+console.log(obj);
 
-function Person(name) {
-    this.name = name;
+
+function calcAgeRetirement(year) {
+    const age = new Date().getFullYear() - year;
+    return [age, 65-age];
 }
 
-// ES5
-/*
-Person.prototype.myFriends5 = function(friends) {
-    var arr = friends.map(function(el)
-    {
-        return this.name + ' is friends with ' + el;
-    }.bind(this));
-
-    console.log(arr);
-
-}
-
-var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends5(friends);
-*/
-
-Person.prototype.myFriends6 = function(friends) {
-    var arr = friends.map(el =>
-        `${this.name} is friends with ${el}`
-    );
-
-    console.log(arr);
-
-}
-
-var friends = ['Bob', 'Jane', 'Mark'];
-new Person('John').myFriends6(friends);
-
-
-
-
-
-
-
+const [age2, retirement] = calcAgeRetirement(1990);
+console.log(age2);
+console.log(retirement);
 
 
 
