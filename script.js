@@ -313,10 +313,10 @@ for (const el of boxesArr6) {
 
 
 // ES5 
-
+/*
 var ages = [12, 17, 8, 21, 14, 11];
 
-/*
+
 var full = ages.map(function(el) {
     return el >= 18;
 });
@@ -324,7 +324,7 @@ console.log(full);
 
 console.log(full.indexOf(true));
 console.log(ages[full.indexOf(true)]);
-*/
+
 
 
 
@@ -332,5 +332,72 @@ console.log(ages[full.indexOf(true)]);
 
 console.log(ages.findIndex(el => el >= 18));
 console.log(ages.find(el => el >= 18));
+*/
+
+//////////////////////////////////////
+// Lecture: Spread Operator
+
+
+function addFourAges (a, b, c, d) {
+    return a + b + c + d;
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1);
+
+// ES5
+
+var ages = [18, 30, 12, 21];
+var sum2 = addFourAges.apply(null, ages);
+console.log(sum2);
+
+// ES6 
+
+const sum3 = addFourAges(...ages);
+console.log(sum3);
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Anne'];
+
+const bigFamily = [...familySmith, 'Lily', ...familyMiller];
+
+console.log(bigFamily);
+
+//nodelist (querySelectorAll)
+
+const h = document.querySelector('h1');
+const boxes2 = document.querySelectorAll('.box');
+
+const allTexts = [h, ...boxes2];
+
+Array.from(allTexts).forEach( el => el.style.color = 'white');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
