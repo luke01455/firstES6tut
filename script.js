@@ -274,7 +274,7 @@ git commit -m "destructuring, aka splitting an array into idividual variables"
 ///////////////////////////////
 /// Lecture: Array ES6
 
-const boxes = document.querySelectorAll('.box');
+// const boxes = document.querySelectorAll('.box');
 
 // ES5
 /*
@@ -286,9 +286,10 @@ boxesArr5.forEach(function(cur) {
 */
 
 // ES6
+/*
 const boxesArr6 = Array.from(boxes);
 Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
-
+*/
 // ES5 
 /*
 for (var i = 0; i < boxesArr5.length; i++) {
@@ -337,7 +338,7 @@ console.log(ages.find(el => el >= 18));
 //////////////////////////////////////
 // Lecture: Spread Operator
 
-
+/*
 function addFourAges (a, b, c, d) {
     return a + b + c + d;
 }
@@ -372,15 +373,55 @@ const allTexts = [h, ...boxes2];
 
 Array.from(allTexts).forEach( el => el.style.color = 'white');
 
+*/
 
+///////////////////////////////
+// Lecture: Rest parameters
 
+// ES5
+/*
+function isFullAge5() {
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments);
+    argsArr.forEach(function(el) {
+        console.log((2016 - el) >= 18);
+    });
+}
 
+//isFullAge5(1990, 1999, 1965);
+//isFullAge5(1990, 1999, 1965, 2016, 1987);
 
+// ES6
+function isFullAge6(...years) {
+    years.forEach((el) => {
+        console.log((2016 - el >= 18));
+    });
+}
 
+isFullAge6(1990, 1999, 1965, 2016, 1977);
+*/
 
+/*
+function isFullAge5(limit) {
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments, 1);
+    argsArr.forEach(function(el) {
+        console.log((2016 - el) >= limit);
+    });
+}
 
+//isFullAge5(21, 1990, 1999, 1965);
+//isFullAge5(1990, 1999, 1965, 2016, 1987);
 
+// ES6
+function isFullAge6(limit, ...years) {
+    years.forEach((el) => {
+        console.log((2016 - el >= limit));
+    });
+}
 
+isFullAge6(16, 1990, 1999, 1965, 2016, 1977);
+*/
 
 
 
