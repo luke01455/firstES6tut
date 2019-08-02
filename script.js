@@ -624,9 +624,33 @@ johnAthlete6.calculateAge();
 */
 
 
+class Parks {
+    constructor (name, yearBuilt, trees, parkSize) {
+        this.name = name;
+        this.yearBuilt = yearBuilt;
+        this.trees = trees;
+        this.parkSize = parkSize;
+    }
+
+    calculateDensity() {
+        const density = this.trees / this.parkSize;
+        console.log(`${this.name} has a tree density of ${density} trees per square km`);
+    }
+
+    calculateAge() {
+        var age = new Date().getFullYear() - this.yearOfBirth;
+        console.log(age);
+    }
+
+}
 
 
+const park1 = new Parks ('Green Park', 1900, 920, 120);
+const park2 = new Parks ('National Park', 1850, 1300, 300);
+const park3 = new Parks ('Oak Park', 1937, 500, 60);
 
+park1.calculateDensity();
+console.log((park1.yearBuilt + park2.yearBuilt + park3.yearBuilt)/ 3);
 
 
 
