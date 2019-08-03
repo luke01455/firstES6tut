@@ -638,9 +638,10 @@ class Parks {
     }
 
     calculateAge() {
-        var age = new Date().getFullYear() - this.yearOfBirth;
-        console.log(age);
+        var age = new Date().getFullYear() - this.yearBuilt;
+        return age;
     }
+
 
 }
 
@@ -649,13 +650,86 @@ const park1 = new Parks ('Green Park', 1900, 920, 120);
 const park2 = new Parks ('National Park', 1850, 1300, 300);
 const park3 = new Parks ('Oak Park', 1937, 500, 60);
 
+const park1Age = park1.calculateAge();
+const park2Age = park2.calculateAge();
+const park3Age = park3.calculateAge();
+
+
+
+const calcAvgAge = function(...ages) {
+    let totalAges = 0;
+    let totalParks = 0;
+    ages.forEach((el) => {
+    totalAges = totalAges + el;
+    totalParks++;
+    
+    });
+    console.log(`Our ${totalParks} parks have an average ages of ${totalAges / ages.length} years`);
+    
+}
+
+const calcTrees = function(...park) {
+    park.forEach((el) => {
+        if (el.trees > 1000) {
+            console.log (`${el.name} has ${el.trees} trees`)
+        }
+    });
+}
+
+console.log(`------- PARKS REPORT ---------`)
+calcAvgAge(park1Age, park2Age, park3Age);
 park1.calculateDensity();
-console.log((park1.yearBuilt + park2.yearBuilt + park3.yearBuilt)/ 3);
+park2.calculateDensity();
+park3.calculateDensity();
+calcTrees(park1, park2, park3);
 
+class Streets {
+    constructor (name, yearBuilt, streetLength, streetSize = 'unknown' ) {
+        this.name = name;
+        this.yearBuilt = yearBuilt;
+        this.streetLength = streetLength;
+        this.streetSize = streetSize;
+    }
 
+}
 
+const calcAvgLength = function(...streets) {
+    totalLength = 0;
+    totalStreets = 0;
+    streets.forEach((el) => {
+    totalLength = totalLength + el.streetLength;
+    totalStreets++;
+    });
+    console.log(`Our ${totalStreets} streets have a total length of ${totalLength} km, with an average length of ${totalLength / totalStreets} km.`);  
+}
 
+const calcStreetSize = function(...streets) {
+    streets.forEach((el) => {
+        if(el.streetLength <= 0.5) {
+            el.streetSize = 'tiny'; } 
+        else if (el.streetLength > 0.5 && el.streetLength <= 1) {
+            el.streetSize = 'small'; }
+        else if (el.streetLength > 1 && el.streetLength <= 1.5) {
+            el.streetSize = 'normal'; }
+        else if (el.streetLength > 1.5 && el.streetLength <= 2) {
+            el.streetSize = 'big'; }
+        else {
+            el.streetSize = 'huge'; 
+        }
+    });
+    streets.forEach((el) => {
+        console.log(`${el.name}, built in ${el.yearBuilt}, is a ${el.streetSize} street`)
+    });
+}
 
+street1 = new Streets ('Ocean Avenue', 1999, 1.8);
+street2 = new Streets ('Evergreen Street', 2008, 0.3);
+street3 = new Streets ('4th Street', 2015, 1);
+street4 = new Streets ('Ocean Avenue', 1999, 3.4);
+
+console.log(`---------- STREETS REPORT -----------`)
+calcAvgLength(street1, street2, street3, street4);
+calcStreetSize(street1, street2, street3, street4);
 
 
 
